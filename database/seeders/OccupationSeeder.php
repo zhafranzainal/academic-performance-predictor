@@ -12,8 +12,6 @@ class OccupationSeeder extends Seeder
      */
     public function run(): void
     {
-        Occupation::factory()
-            ->count(5)
-            ->create();
+        Occupation::factory()->count(5)->create();
     }
 }

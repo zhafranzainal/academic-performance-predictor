@@ -12,8 +12,6 @@ class HighestQualificationSeeder extends Seeder
      */
     public function run(): void
     {
-        HighestQualification::factory()
-            ->count(5)
-            ->create();
+        HighestQualification::factory()->count(5)->create();
     }
 }

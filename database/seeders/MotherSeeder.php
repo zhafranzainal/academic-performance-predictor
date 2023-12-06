@@ -12,8 +12,6 @@ class MotherSeeder extends Seeder
      */
     public function run(): void
     {
-        Mother::factory()
-            ->count(5)
-            ->create();
+        Mother::factory()->count(5)->create();
     }
 }

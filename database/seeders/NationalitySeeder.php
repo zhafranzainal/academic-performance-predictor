@@ -12,8 +12,6 @@ class NationalitySeeder extends Seeder
      */
     public function run(): void
     {
-        Nationality::factory()
-            ->count(5)
-            ->create();
+        Nationality::factory()->count(5)->create();
     }
 }
