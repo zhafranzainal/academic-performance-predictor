@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Father;
-use Illuminate\Support\Str;
+use App\Models\HighestQualification;
+use App\Models\Occupation;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class FatherFactory extends Factory
@@ -23,9 +25,9 @@ class FatherFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::factory(),
-            'highest_qualification_id' => \App\Models\HighestQualification::factory(),
-            'occupation_id' => \App\Models\Occupation::factory(),
+            'user_id' => User::factory(),
+            'highest_qualification_id' => HighestQualification::inRandomOrder()->pluck('id')->first(),
+            'occupation_id' => Occupation::inRandomOrder()->pluck('id')->first(),
         ];
     }
 }

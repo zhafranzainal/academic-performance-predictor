@@ -2,9 +2,15 @@
 
 namespace Database\Factories;
 
+use App\Models\Course;
+use App\Models\Father;
+use App\Models\HighestQualification;
+use App\Models\Mother;
+use App\Models\Nationality;
 use App\Models\Student;
-use Illuminate\Support\Str;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 class StudentFactory extends Factory
 {
@@ -23,9 +29,15 @@ class StudentFactory extends Factory
     public function definition(): array
     {
         return [
-            'gender' => \Arr::random(['male', 'female']),
+            'user_id' => User::factory(),
+            'course_id' => Course::inRandomOrder()->pluck('id')->first(),
+            'nationality_id' => Nationality::inRandomOrder()->pluck('id')->first(),
+            'highest_qualification_id' => HighestQualification::inRandomOrder()->pluck('id')->first(),
+            'father_id' => Father::inRandomOrder()->pluck('id')->first(),
+            'mother_id' => Mother::inRandomOrder()->pluck('id')->first(),
+            'gender' => Arr::random(['male', 'female']),
             'enrolled_age' => $this->faker->numberBetween(0, 127),
-            'marital_status' => \Arr::random([
+            'marital_status' => Arr::random([
                 'single',
                 'married',
                 'widower',
@@ -41,17 +53,11 @@ class StudentFactory extends Factory
             'taken_credit' => $this->faker->numberBetween(0, 127),
             'earned_credit' => $this->faker->numberBetween(0, 127),
             'cgpa' => $this->faker->randomNumber(2),
-            'enrollment_status' => \Arr::random([
+            'enrollment_status' => Arr::random([
                 'dropout',
                 'enrolled',
                 'graduate',
             ]),
-            'user_id' => \App\Models\User::factory(),
-            'course_id' => \App\Models\Course::factory(),
-            'nationality_id' => \App\Models\Nationality::factory(),
-            'highest_qualification_id' => \App\Models\HighestQualification::factory(),
-            'father_id' => \App\Models\Father::factory(),
-            'mother_id' => \App\Models\Mother::factory(),
         ];
     }
 }
