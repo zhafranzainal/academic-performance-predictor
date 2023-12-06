@@ -30,9 +30,9 @@ class StudentFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
-            'course_id' => Course::inRandomOrder()->pluck('id')->first(),
-            'nationality_id' => Nationality::inRandomOrder()->pluck('id')->first(),
             'highest_qualification_id' => HighestQualification::inRandomOrder()->pluck('id')->first(),
+            'nationality_id' => Nationality::inRandomOrder()->pluck('id')->first(),
+            'course_id' => Course::inRandomOrder()->pluck('id')->first(),
             'father_id' => Father::inRandomOrder()->pluck('id')->first(),
             'mother_id' => Mother::inRandomOrder()->pluck('id')->first(),
             'gender' => Arr::random(['male', 'female']),
