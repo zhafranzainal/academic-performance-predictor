@@ -36,7 +36,7 @@ class StudentFactory extends Factory
             'father_id' => Father::inRandomOrder()->pluck('id')->first(),
             'mother_id' => Mother::inRandomOrder()->pluck('id')->first(),
             'gender' => Arr::random(['male', 'female']),
-            'enrolled_age' => $this->faker->numberBetween(0, 127),
+            'enrolled_age' => $this->faker->numberBetween(19, 30),
             'marital_status' => Arr::random([
                 'single',
                 'married',
@@ -50,9 +50,9 @@ class StudentFactory extends Factory
             'is_debtor' => $this->faker->boolean(),
             'is_displaced' => $this->faker->boolean(),
             'has_educational_special_needs' => $this->faker->boolean(),
-            'taken_credit' => $this->faker->numberBetween(0, 127),
-            'earned_credit' => $this->faker->numberBetween(0, 127),
-            'cgpa' => $this->faker->randomNumber(2),
+            'taken_credit' => $this->faker->numberBetween(0, 20),
+            'earned_credit' => $this->faker->numberBetween(0, 20),
+            'cgpa' => $this->faker->randomFloat(2, 0, 4),
             'enrollment_status' => Arr::random([
                 'dropout',
                 'enrolled',
