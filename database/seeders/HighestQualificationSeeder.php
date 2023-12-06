@@ -12,6 +12,10 @@ class HighestQualificationSeeder extends Seeder
      */
     public function run(): void
     {
-        HighestQualification::factory()->count(5)->create();
+        HighestQualification::create(['name' => 'Secondary Education']);
+        HighestQualification::create(['name' => 'Foundation']);
+        HighestQualification::create(['name' => 'Degree']);
+        HighestQualification::create(['name' => 'Master']);
+        HighestQualification::create(['name' => 'Doctorate']);
     }
 }
