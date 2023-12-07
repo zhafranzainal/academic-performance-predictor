@@ -123,7 +123,46 @@
                                 </th>
 
                                 <th class="px-4 py-3 text-left">
+
                                     @lang('Enrollment Status')
+
+                                    <form id="searchEnrollmentStatus">
+
+                                        <div class="mt-1">
+
+                                            <label class="inline-flex items-center">
+                                                <input type="radio" class="filter-radio" name="search"
+                                                    value="graduate">
+                                                <span class="ml-2">Graduate</span>
+                                            </label>
+
+                                            <label class="inline-flex items-center">
+                                                <input type="radio" class="filter-radio" name="search"
+                                                    value="enrolled">
+                                                <span class="ml-2">Enrolled</span>
+                                            </label>
+
+                                            <label class="inline-flex items-center">
+                                                <input type="radio" class="filter-radio" name="search"
+                                                    value="dropout">
+                                                <span class="ml-2">Dropout</span>
+                                            </label>
+
+                                        </div>
+
+                                    </form>
+
+                                    <script>
+                                        const radioButtons = document.querySelectorAll('input[type="radio"]');
+                                        const form = document.getElementById('searchEnrollmentStatus');
+
+                                        radioButtons.forEach(radio => {
+                                            radio.addEventListener('click', () => {
+                                                form.submit();
+                                            });
+                                        });
+                                    </script>
+
                                 </th>
 
                                 <th>Actions</th>
