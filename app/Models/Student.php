@@ -6,6 +6,7 @@ use App\Models\Scopes\Searchable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Nnjeim\World\Models\Country;
 
 class Student extends Model
 {
@@ -16,7 +17,7 @@ class Student extends Model
     protected $fillable = [
         'user_id',
         'highest_qualification_id',
-        'nationality_id',
+        'country_id',
         'course_id',
         'father_id',
         'mother_id',
@@ -54,9 +55,9 @@ class Student extends Model
         return $this->belongsTo(Course::class);
     }
 
-    public function nationality()
+    public function country()
     {
-        return $this->belongsTo(Nationality::class);
+        return $this->belongsTo(Country::class);
     }
 
     public function highestQualification()

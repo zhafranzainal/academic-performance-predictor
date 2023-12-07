@@ -13,18 +13,11 @@
                         <div class="md:w-1/2">
                             <form>
                                 <div class="flex items-center w-full">
-                                    <x-inputs.text
-                                        name="search"
-                                        value="{{ $search ?? '' }}"
-                                        placeholder="{{ __('crud.common.search') }}"
-                                        autocomplete="off"
-                                    ></x-inputs.text>
+                                    <x-inputs.text name="search" value="{{ $search ?? '' }}"
+                                        placeholder="{{ __('crud.common.search') }}" autocomplete="off"></x-inputs.text>
 
                                     <div class="ml-1">
-                                        <button
-                                            type="submit"
-                                            class="button button-primary"
-                                        >
+                                        <button type="submit" class="button button-primary">
                                             <i class="icon ion-md-search"></i>
                                         </button>
                                     </div>
@@ -33,13 +26,10 @@
                         </div>
                         <div class="md:w-1/2 text-right">
                             @can('create', App\Models\Student::class)
-                            <a
-                                href="{{ route('students.create') }}"
-                                class="button button-primary"
-                            >
-                                <i class="mr-1 icon ion-md-add"></i>
-                                @lang('crud.common.create')
-                            </a>
+                                <a href="{{ route('students.create') }}" class="button button-primary">
+                                    <i class="mr-1 icon ion-md-add"></i>
+                                    @lang('crud.common.create')
+                                </a>
                             @endcan
                         </div>
                     </div>
@@ -56,7 +46,7 @@
                                     @lang('crud.students.inputs.highest_qualification_id')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.nationality_id')
+                                    @lang('crud.students.inputs.country_id')
                                 </th>
                                 <th class="px-4 py-3 text-left">
                                     @lang('crud.students.inputs.course_id')
@@ -108,135 +98,103 @@
                         </thead>
                         <tbody class="text-gray-600">
                             @forelse($students as $student)
-                            <tr class="hover:bg-gray-50">
-                                <td class="px-4 py-3 text-left">
-                                    {{ optional($student->user)->name ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{
-                                    optional($student->highestQualification)->name
-                                    ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ optional($student->nationality)->name ??
-                                    '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ optional($student->course)->name ?? '-'
-                                    }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ optional($student->father)->id ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ optional($student->mother)->id ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->gender ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->enrolled_age ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->marital_status ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->is_international ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->is_scholarship_holder ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->is_debtor ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->is_displaced ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->has_educational_special_needs
-                                    ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->taken_credit ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->earned_credit ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-right">
-                                    {{ $student->cgpa ?? '-' }}
-                                </td>
-                                <td class="px-4 py-3 text-left">
-                                    {{ $student->enrollment_status ?? '-' }}
-                                </td>
-                                <td
-                                    class="px-4 py-3 text-center"
-                                    style="width: 134px;"
-                                >
-                                    <div
-                                        role="group"
-                                        aria-label="Row Actions"
-                                        class="
+                                <tr class="hover:bg-gray-50">
+                                    <td class="px-4 py-3 text-left">
+                                        {{ optional($student->user)->name ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ optional($student->highestQualification)->name ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ optional($student->country)->name ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ optional($student->course)->name ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ optional($student->father)->id ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ optional($student->mother)->id ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->gender ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->enrolled_age ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->marital_status ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->is_international ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->is_scholarship_holder ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->is_debtor ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->is_displaced ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->has_educational_special_needs ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->taken_credit ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->earned_credit ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-right">
+                                        {{ $student->cgpa ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-left">
+                                        {{ $student->enrollment_status ?? '-' }}
+                                    </td>
+                                    <td class="px-4 py-3 text-center" style="width: 134px;">
+                                        <div role="group" aria-label="Row Actions"
+                                            class="
                                             relative
                                             inline-flex
                                             align-middle
-                                        "
-                                    >
-                                        @can('update', $student)
-                                        <a
-                                            href="{{ route('students.edit', $student) }}"
-                                            class="mr-1"
-                                        >
-                                            <button
-                                                type="button"
-                                                class="button"
-                                            >
-                                                <i
-                                                    class="icon ion-md-create"
-                                                ></i>
-                                            </button>
-                                        </a>
-                                        @endcan @can('view', $student)
-                                        <a
-                                            href="{{ route('students.show', $student) }}"
-                                            class="mr-1"
-                                        >
-                                            <button
-                                                type="button"
-                                                class="button"
-                                            >
-                                                <i class="icon ion-md-eye"></i>
-                                            </button>
-                                        </a>
-                                        @endcan @can('delete', $student)
-                                        <form
-                                            action="{{ route('students.destroy', $student) }}"
-                                            method="POST"
-                                            onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')"
-                                        >
-                                            @csrf @method('DELETE')
-                                            <button
-                                                type="submit"
-                                                class="button"
-                                            >
-                                                <i
-                                                    class="
+                                        ">
+                                            @can('update', $student)
+                                                <a href="{{ route('students.edit', $student) }}" class="mr-1">
+                                                    <button type="button" class="button">
+                                                        <i class="icon ion-md-create"></i>
+                                                    </button>
+                                                </a>
+                                                @endcan @can('view', $student)
+                                                <a href="{{ route('students.show', $student) }}" class="mr-1">
+                                                    <button type="button" class="button">
+                                                        <i class="icon ion-md-eye"></i>
+                                                    </button>
+                                                </a>
+                                                @endcan @can('delete', $student)
+                                                <form action="{{ route('students.destroy', $student) }}" method="POST"
+                                                    onsubmit="return confirm('{{ __('crud.common.are_you_sure') }}')">
+                                                    @csrf @method('DELETE')
+                                                    <button type="submit" class="button">
+                                                        <i
+                                                            class="
                                                         icon
                                                         ion-md-trash
                                                         text-red-600
-                                                    "
-                                                ></i>
-                                            </button>
-                                        </form>
-                                        @endcan
-                                    </div>
-                                </td>
-                            </tr>
+                                                    "></i>
+                                                    </button>
+                                                </form>
+                                            @endcan
+                                        </div>
+                                    </td>
+                                </tr>
                             @empty
-                            <tr>
-                                <td colspan="19">
-                                    @lang('crud.common.no_items_found')
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td colspan="19">
+                                        @lang('crud.common.no_items_found')
+                                    </td>
+                                </tr>
                             @endforelse
                         </tbody>
                         <tfoot>

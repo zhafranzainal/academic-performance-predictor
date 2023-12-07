@@ -8,12 +8,13 @@ use App\Models\Student;
 use App\Models\Course;
 use App\Models\Father;
 use App\Models\Mother;
-use App\Models\Nationality;
 use App\Models\HighestQualification;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Arr;
+use Nnjeim\World\Models\Country;
 
 class StudentControllerTest extends TestCase
 {
@@ -114,7 +115,7 @@ class StudentControllerTest extends TestCase
 
         $user = User::factory()->create();
         $course = Course::factory()->create();
-        $nationality = Nationality::factory()->create();
+        $country = Country::factory()->create();
         $highestQualification = HighestQualification::factory()->create();
         $father = Father::factory()->create();
         $mother = Mother::factory()->create();
@@ -122,13 +123,13 @@ class StudentControllerTest extends TestCase
         $data = [
             'user_id' => $this->faker->randomNumber(),
             'highest_qualification_id' => $this->faker->randomNumber(),
-            'nationality_id' => $this->faker->randomNumber(),
+            'country_id' => $this->faker->randomNumber(),
             'course_id' => $this->faker->randomNumber(),
             'father_id' => $this->faker->randomNumber(),
             'mother_id' => $this->faker->randomNumber(),
-            'gender' => \Arr::random(['male', 'female']),
+            'gender' => Arr::random(['male', 'female']),
             'enrolled_age' => $this->faker->numberBetween(0, 127),
-            'marital_status' => \Arr::random([
+            'marital_status' => Arr::random([
                 'single',
                 'married',
                 'widower',
@@ -144,14 +145,14 @@ class StudentControllerTest extends TestCase
             'taken_credit' => $this->faker->numberBetween(0, 127),
             'earned_credit' => $this->faker->numberBetween(0, 127),
             'cgpa' => $this->faker->randomNumber(2),
-            'enrollment_status' => \Arr::random([
+            'enrollment_status' => Arr::random([
                 'dropout',
                 'enrolled',
                 'graduate',
             ]),
             'user_id' => $user->id,
             'course_id' => $course->id,
-            'nationality_id' => $nationality->id,
+            'country_id' => $country->id,
             'highest_qualification_id' => $highestQualification->id,
             'father_id' => $father->id,
             'mother_id' => $mother->id,

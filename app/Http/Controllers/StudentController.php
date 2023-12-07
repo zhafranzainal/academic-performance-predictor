@@ -8,12 +8,12 @@ use App\Models\Father;
 use App\Models\Mother;
 use App\Models\Student;
 use Illuminate\View\View;
-use App\Models\Nationality;
 use Illuminate\Http\Request;
 use App\Models\HighestQualification;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StudentStoreRequest;
 use App\Http\Requests\StudentUpdateRequest;
+use Nnjeim\World\Models\Country;
 
 class StudentController extends Controller
 {
@@ -43,7 +43,7 @@ class StudentController extends Controller
 
         $users = User::pluck('name', 'id');
         $highestQualifications = HighestQualification::pluck('name', 'id');
-        $nationalities = Nationality::pluck('name', 'id');
+        $countries = Country::pluck('name', 'id');
         $courses = Course::pluck('name', 'id');
         $fathers = Father::pluck('id', 'id');
         $mothers = Mother::pluck('id', 'id');
@@ -53,7 +53,7 @@ class StudentController extends Controller
             compact(
                 'users',
                 'highestQualifications',
-                'nationalities',
+                'countries',
                 'courses',
                 'fathers',
                 'mothers'
@@ -96,7 +96,7 @@ class StudentController extends Controller
 
         $users = User::pluck('name', 'id');
         $highestQualifications = HighestQualification::pluck('name', 'id');
-        $nationalities = Nationality::pluck('name', 'id');
+        $countries = Country::pluck('name', 'id');
         $courses = Course::pluck('name', 'id');
         $fathers = Father::pluck('id', 'id');
         $mothers = Mother::pluck('id', 'id');
@@ -107,7 +107,7 @@ class StudentController extends Controller
                 'student',
                 'users',
                 'highestQualifications',
-                'nationalities',
+                'countries',
                 'courses',
                 'fathers',
                 'mothers'

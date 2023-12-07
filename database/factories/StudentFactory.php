@@ -6,11 +6,11 @@ use App\Models\Course;
 use App\Models\Father;
 use App\Models\HighestQualification;
 use App\Models\Mother;
-use App\Models\Nationality;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
+use Nnjeim\World\Models\Country;
 
 class StudentFactory extends Factory
 {
@@ -31,7 +31,7 @@ class StudentFactory extends Factory
         return [
             'user_id' => User::factory(),
             'highest_qualification_id' => HighestQualification::inRandomOrder()->pluck('id')->first(),
-            'nationality_id' => Nationality::inRandomOrder()->pluck('id')->first(),
+            'country_id' => Country::inRandomOrder()->pluck('id')->first(),
             'course_id' => Course::inRandomOrder()->pluck('id')->first(),
             'father_id' => Father::inRandomOrder()->pluck('id')->first(),
             'mother_id' => Mother::inRandomOrder()->pluck('id')->first(),

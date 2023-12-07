@@ -25,7 +25,7 @@ class StudentUpdateRequest extends FormRequest
                 'required',
                 'exists:highest_qualifications,id',
             ],
-            'nationality_id' => ['required', 'exists:nationalities,id'],
+            'country_id' => ['required', 'exists:countries,id'],
             'course_id' => ['required', 'exists:courses,id'],
             'father_id' => ['required', 'exists:fathers,id'],
             'mother_id' => ['required', 'exists:mothers,id'],

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(FatherSeeder::class);
         $this->call(MotherSeeder::class);
 
-        $this->call(NationalitySeeder::class);
+        $this->call(WorldSeeder::class);
         $this->call(CourseSeeder::class);
         $this->call(StudentSeeder::class);
     }

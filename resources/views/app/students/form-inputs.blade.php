@@ -26,10 +26,10 @@
     </x-inputs.group>
 
     <x-inputs.group class="w-full">
-        <x-inputs.select name="nationality_id" label="Nationality" required>
-            @php $selected = old('nationality_id', ($editing ? $student->nationality_id : '')) @endphp
+        <x-inputs.select name="country_id" label="Nationality" required>
+            @php $selected = old('country_id', ($editing ? $student->country_id : '')) @endphp
             <option disabled {{ empty($selected) ? 'selected' : '' }}>Please select the Nationality</option>
-            @foreach($nationalities as $value => $label)
+            @foreach($countries as $value => $label)
             <option value="{{ $value }}" {{ $selected == $value ? 'selected' : '' }} >{{ $label }}</option>
             @endforeach
         </x-inputs.select>

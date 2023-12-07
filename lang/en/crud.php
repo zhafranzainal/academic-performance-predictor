@@ -32,7 +32,7 @@ return [
         'inputs' => [
             'user_id' => 'User',
             'highest_qualification_id' => 'Highest Qualification',
-            'nationality_id' => 'Nationality',
+            'country_id' => 'Nationality',
             'course_id' => 'Course',
             'father_id' => 'Father',
             'mother_id' => 'Mother',

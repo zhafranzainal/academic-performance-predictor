@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-return new class extends Migration {
+return new class extends Migration
+{
     /**
      * Run the migrations.
      */
@@ -25,12 +26,12 @@ return new class extends Migration {
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
-            $table
-                ->foreign('nationality_id')
-                ->references('id')
-                ->on('nationalities')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE');
+            // $table
+            //     ->foreign('country_id')
+            //     ->references('id')
+            //     ->on('countries')
+            //     ->onUpdate('CASCADE')
+            //     ->onDelete('CASCADE');
 
             $table
                 ->foreign('course_id')
@@ -63,7 +64,7 @@ return new class extends Migration {
         Schema::table('students', function (Blueprint $table) {
             $table->dropForeign(['user_id']);
             $table->dropForeign(['highest_qualification_id']);
-            $table->dropForeign(['nationality_id']);
+            $table->dropForeign(['country_id']);
             $table->dropForeign(['course_id']);
             $table->dropForeign(['father_id']);
             $table->dropForeign(['mother_id']);
