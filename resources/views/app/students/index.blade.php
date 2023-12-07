@@ -59,6 +59,14 @@
                                 </th>
 
                                 <th class="px-4 py-3 text-left">
+                                    @lang('Father Name')
+                                </th>
+
+                                <th class="px-4 py-3 text-left">
+                                    @lang('Mother Name')
+                                </th>
+
+                                <th class="px-4 py-3 text-left">
                                     @lang('Highest Qualification')
                                 </th>
 
@@ -68,14 +76,6 @@
 
                                 <th class="px-4 py-3 text-left">
                                     @lang('Course')
-                                </th>
-
-                                <th class="px-4 py-3 text-left">
-                                    @lang('Father Name')
-                                </th>
-
-                                <th class="px-4 py-3 text-left">
-                                    @lang('Mother Name')
                                 </th>
 
                                 <th class="px-4 py-3 text-left">
@@ -144,6 +144,14 @@
                                     </td>
 
                                     <td class="px-4 py-3 text-left">
+                                        {{ optional($student->father->user)->name ?? '-' }}
+                                    </td>
+
+                                    <td class="px-4 py-3 text-left">
+                                        {{ optional($student->mother->user)->name ?? '-' }}
+                                    </td>
+
+                                    <td class="px-4 py-3 text-left">
                                         {{ optional($student->highestQualification)->name ?? '-' }}
                                     </td>
 
@@ -153,14 +161,6 @@
 
                                     <td class="px-4 py-3 text-left">
                                         {{ optional($student->course)->name ?? '-' }}
-                                    </td>
-
-                                    <td class="px-4 py-3 text-left">
-                                        {{ optional($student->father->user)->name ?? '-' }}
-                                    </td>
-
-                                    <td class="px-4 py-3 text-left">
-                                        {{ optional($student->mother->user)->name ?? '-' }}
                                     </td>
 
                                     <td class="px-4 py-3 text-left">
