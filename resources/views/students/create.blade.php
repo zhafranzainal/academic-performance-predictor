@@ -19,7 +19,7 @@
                     action="{{ route('students.store') }}"
                     class="mt-4"
                 >
-                    @include('app.students.form-inputs')
+                    @include('students.form-inputs')
 
                     <div class="mt-10">
                         <a href="{{ route('students.index') }}" class="button">

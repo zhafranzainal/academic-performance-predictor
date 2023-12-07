@@ -28,7 +28,7 @@ class StudentController extends Controller
 
         $students = Student::search($search)->paginate(25)->withQueryString();
 
-        return view('app.students.index', compact('students', 'search'));
+        return view('students.index', compact('students', 'search'));
     }
 
     /**
@@ -46,7 +46,7 @@ class StudentController extends Controller
         $mothers = Mother::pluck('id', 'id');
 
         return view(
-            'app.students.create',
+            'students.create',
             compact(
                 'users',
                 'highestQualifications',
@@ -81,7 +81,7 @@ class StudentController extends Controller
     {
         $this->authorize('view', $student);
 
-        return view('app.students.show', compact('student'));
+        return view('students.show', compact('student'));
     }
 
     /**
@@ -99,7 +99,7 @@ class StudentController extends Controller
         $mothers = Mother::pluck('id', 'id');
 
         return view(
-            'app.students.edit',
+            'students.edit',
             compact(
                 'student',
                 'users',
