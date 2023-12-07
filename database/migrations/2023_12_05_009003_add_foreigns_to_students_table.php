@@ -26,12 +26,12 @@ return new class extends Migration
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE');
 
-            // $table
-            //     ->foreign('country_id')
-            //     ->references('id')
-            //     ->on('countries')
-            //     ->onUpdate('CASCADE')
-            //     ->onDelete('CASCADE');
+            $table
+                ->foreign('country_id')
+                ->references('id')
+                ->on('countries')
+                ->onUpdate('CASCADE')
+                ->onDelete('CASCADE');
 
             $table
                 ->foreign('course_id')
