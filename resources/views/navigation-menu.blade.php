@@ -20,13 +20,11 @@
                     </x-nav-link>
                 </div>
 
-                <x-nav-dropdown title="Apps" align="right" width="48">
-                    @can('view-any', App\Models\Student::class)
-                        <x-dropdown-link href="{{ route('students.index') }}">
-                            Students
-                        </x-dropdown-link>
-                    @endcan
-                </x-nav-dropdown>
+                @can('view-any', App\Models\Student::class)
+                    <x-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
+                        Students
+                    </x-nav-link>
+                @endcan
 
             </div>
 
