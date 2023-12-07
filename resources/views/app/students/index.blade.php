@@ -51,6 +51,10 @@
                             <tr>
 
                                 <th class="px-4 py-3 text-left">
+                                    No.
+                                </th>
+
+                                <th class="px-4 py-3 text-left">
                                     @lang('Student Name')
                                 </th>
 
@@ -132,6 +136,10 @@
                                 <tr class="hover:bg-gray-50">
 
                                     <td class="px-4 py-3 text-left">
+                                        {{ $student->id ?? '-' }}
+                                    </td>
+
+                                    <td class="px-4 py-3 text-left">
                                         {{ optional($student->user)->name ?? '-' }}
                                     </td>
 
@@ -148,11 +156,11 @@
                                     </td>
 
                                     <td class="px-4 py-3 text-left">
-                                        {{ optional($student->father)->id ?? '-' }}
+                                        {{ optional($student->father->user)->name ?? '-' }}
                                     </td>
 
                                     <td class="px-4 py-3 text-left">
-                                        {{ optional($student->mother)->id ?? '-' }}
+                                        {{ optional($student->mother->user)->name ?? '-' }}
                                     </td>
 
                                     <td class="px-4 py-3 text-left">
@@ -167,24 +175,29 @@
                                         {{ $student->marital_status ?? '-' }}
                                     </td>
 
-                                    <td class="px-4 py-3 text-left">
-                                        {{ $student->is_international ?? '-' }}
+                                    <td class="px-4 py-3 text-left"
+                                        style="{{ $student->is_international == 1 ? 'color: green;' : 'color: red;' }}">
+                                        {{ $student->is_international == 1 ? 'Yes' : 'No' }}
                                     </td>
 
-                                    <td class="px-4 py-3 text-left">
-                                        {{ $student->is_scholarship_holder ?? '-' }}
+                                    <td class="px-4 py-3 text-left"
+                                        style="{{ $student->is_scholarship_holder == 1 ? 'color: green;' : 'color: red;' }}">
+                                        {{ $student->is_scholarship_holder == 1 ? 'Yes' : 'No' }}
                                     </td>
 
-                                    <td class="px-4 py-3 text-left">
-                                        {{ $student->is_debtor ?? '-' }}
+                                    <td class="px-4 py-3 text-left"
+                                        style="{{ $student->is_debtor == 1 ? 'color: green;' : 'color: red;' }}">
+                                        {{ $student->is_debtor == 1 ? 'Yes' : 'No' }}
                                     </td>
 
-                                    <td class="px-4 py-3 text-left">
-                                        {{ $student->is_displaced ?? '-' }}
+                                    <td class="px-4 py-3 text-left"
+                                        style="{{ $student->is_displaced == 1 ? 'color: green;' : 'color: red;' }}">
+                                        {{ $student->is_displaced == 1 ? 'Yes' : 'No' }}
                                     </td>
 
-                                    <td class="px-4 py-3 text-left">
-                                        {{ $student->has_educational_special_needs ?? '-' }}
+                                    <td class="px-4 py-3 text-left"
+                                        style="{{ $student->has_educational_special_needs == 1 ? 'color: green;' : 'color: red;' }}">
+                                        {{ $student->has_educational_special_needs == 1 ? 'Yes' : 'No' }}
                                     </td>
 
                                     <td class="px-4 py-3 text-left">
