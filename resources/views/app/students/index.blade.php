@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            @lang('crud.students.index_title')
+            Students List
         </h2>
     </x-slot>
 
@@ -14,7 +14,7 @@
                             <form>
                                 <div class="flex items-center w-full">
                                     <x-inputs.text name="search" value="{{ $search ?? '' }}"
-                                        placeholder="{{ __('crud.common.search') }}" autocomplete="off"></x-inputs.text>
+                                        placeholder="{{ __('Search...') }}" autocomplete="off"></x-inputs.text>
 
                                     <div class="ml-1">
                                         <button type="submit" class="button button-primary">
@@ -28,7 +28,7 @@
                             @can('create', App\Models\Student::class)
                                 <a href="{{ route('students.create') }}" class="button button-primary">
                                     <i class="mr-1 icon ion-md-add"></i>
-                                    @lang('crud.common.create')
+                                    @lang('Create')
                                 </a>
                             @endcan
                         </div>
@@ -40,58 +40,58 @@
                         <thead class="text-gray-700">
                             <tr>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.user_id')
+                                    @lang('Student Name')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.highest_qualification_id')
+                                    @lang('Highest Qualification')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.country_id')
+                                    @lang('Nationality')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.course_id')
+                                    @lang('Course')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.father_id')
+                                    @lang('Father Name')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.mother_id')
+                                    @lang('Mother Name')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.gender')
+                                    @lang('Gender')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.enrolled_age')
+                                    @lang('Enrolled Age')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.marital_status')
+                                    @lang('Marital Status')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.is_international')
+                                    @lang('International Student')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.is_scholarship_holder')
+                                    @lang('Scholarship Holder')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.is_debtor')
+                                    @lang('Debtor')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.is_displaced')
+                                    @lang('Displaced Student')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.has_educational_special_needs')
+                                    @lang('Has Educational Special Needs')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.taken_credit')
+                                    @lang('Taken Credit')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.earned_credit')
+                                    @lang('Earned Credit')
                                 </th>
                                 <th class="px-4 py-3 text-right">
-                                    @lang('crud.students.inputs.cgpa')
+                                    @lang('CGPA')
                                 </th>
                                 <th class="px-4 py-3 text-left">
-                                    @lang('crud.students.inputs.enrollment_status')
+                                    @lang('Enrollment Status')
                                 </th>
                                 <th></th>
                             </tr>

@@ -28,7 +28,7 @@ class StudentController extends Controller
 
         $students = Student::search($search)
             ->latest()
-            ->paginate(5)
+            ->paginate(25)
             ->withQueryString();
 
         return view('app.students.index', compact('students', 'search'));
