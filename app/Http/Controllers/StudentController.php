@@ -45,17 +45,7 @@ class StudentController extends Controller
         $fathers = Father::pluck('id', 'id');
         $mothers = Mother::pluck('id', 'id');
 
-        return view(
-            'students.create',
-            compact(
-                'users',
-                'highestQualifications',
-                'countries',
-                'courses',
-                'fathers',
-                'mothers'
-            )
-        );
+        return view('students.create', compact('users', 'highestQualifications', 'countries', 'courses', 'fathers', 'mothers'));
     }
 
     /**
@@ -69,9 +59,7 @@ class StudentController extends Controller
 
         $student = Student::create($validated);
 
-        return redirect()
-            ->route('students.edit', $student)
-            ->withSuccess(__('crud.common.created'));
+        return redirect()->route('students.edit', $student)->withSuccess(__('crud.common.created'));
     }
 
     /**
@@ -98,51 +86,32 @@ class StudentController extends Controller
         $fathers = Father::pluck('id', 'id');
         $mothers = Mother::pluck('id', 'id');
 
-        return view(
-            'students.edit',
-            compact(
-                'student',
-                'users',
-                'highestQualifications',
-                'countries',
-                'courses',
-                'fathers',
-                'mothers'
-            )
-        );
+        return view('students.edit', compact('student', 'users', 'highestQualifications', 'countries', 'courses', 'fathers', 'mothers'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(
-        StudentUpdateRequest $request,
-        Student $student
-    ): RedirectResponse {
+    public function update(StudentUpdateRequest $request, Student $student): RedirectResponse
+    {
         $this->authorize('update', $student);
 
         $validated = $request->validated();
 
         $student->update($validated);
 
-        return redirect()
-            ->route('students.edit', $student)
-            ->withSuccess(__('crud.common.saved'));
+        return redirect()->route('students.edit', $student)->withSuccess(__('crud.common.saved'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(
-        Request $request,
-        Student $student
-    ): RedirectResponse {
+    public function destroy(Request $request, Student $student): RedirectResponse
+    {
         $this->authorize('delete', $student);
 
         $student->delete();
 
-        return redirect()
-            ->route('students.index')
-            ->withSuccess(__('crud.common.removed'));
+        return redirect()->route('students.index')->withSuccess(__('crud.common.removed'));
     }
 }
